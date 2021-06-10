@@ -1,6 +1,9 @@
 window.addEventListener("load", carouselSlide);
+window.addEventListener("load", prodSlider);
+
 function carouselSlide() {
   let carousel = document.getElementById("carousel");
+  let image = document.querySelector("#carousel img");
 
   const image_1 =
     "https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/RevisedAllbannersBanner01Updated_8thJune2021.jpg";
@@ -19,9 +22,6 @@ function carouselSlide() {
 
   let arr = [image_1, image_2, image_3, image_4, image_5, image_6, image_7];
 
-  carousel.style.background = `url(${arr[0]}) no-repeat`;
-  carousel.style.backgroundSize = "100% 100%";
-
   let i = 0;
   let myCarousel = function () {
     let x;
@@ -30,9 +30,12 @@ function carouselSlide() {
     if (i >= arr.length) i = 0;
 
     function addimg(index) {
-      carousel.innerHTML = "";
-      carousel.style.background = `url(${arr[index]}) no-repeat`;
-      carousel.style.backgroundSize = "100% 100%";
+      let btns = document.querySelectorAll("#carousel button");
+      if (btns.length > 0) {
+        btns[0].parentElement.removeChild(btns[0]);
+        btns[1].parentElement.removeChild(btns[1]);
+      }
+      image.src = `${arr[index]}`;
 
       let forward = document.createElement("button");
       forward.setAttribute("class", "fdbtn");
@@ -49,6 +52,7 @@ function carouselSlide() {
       };
 
       carousel.append(forward, backward);
+
       if (x != undefined) return x;
       else return index;
     }
@@ -68,4 +72,32 @@ function carouselSlide() {
     i = addimg(i);
   };
   let carouselTimer = setInterval(myCarousel, 5000);
+}
+
+function prodSlider() {
+  let slider = document.querySelectorAll("#product_slider");
+  let leftSlide = document.querySelectorAll("#slideLeft");
+  let rightSlide = document.querySelectorAll("#slideRight");
+
+  for (let i = 0; i < slider.length; i++) {
+    leftSlide[i].addEventListener("click", slideLeft);
+    rightSlide[i].addEventListener("click", slideRight);
+    function slideLeft() {
+      console.log("clicked");
+      slider[i].style.transform = "translateX(-50%)";
+      leftSlide[i].style.display = "none";
+      rightSlide[i].style.display = "block";
+
+      setTimeout(slideRight, 4000);
+    }
+    function slideRight() {
+      slider[i].style.transform = "translateX(0%)";
+      leftSlide[i].style.display = "block";
+      rightSlide[i].style.display = "none";
+
+      setTimeout(slideLeft, 4000);
+    }
+
+    setTimeout(slideLeft, 3000);
+  }
 }

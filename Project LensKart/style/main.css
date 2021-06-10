@@ -93,49 +93,42 @@ main content first row css */
 /* lenskart main carousel css */
 
 .carousel {
+  width: fit-content;
+  height: fit-content;
+}
+.carousel img {
   width: 100%;
-  height: 250px;
+  position: relative;
 }
 .fdbtn {
-  margin: 100px 20px;
-  float: right;
+  position: absolute;
   height: 50px;
   width: 45px;
   background-color: black;
+  z-index: 10;
+  right: 2%;
+  margin-top: 5%;
 }
 .bdbtn {
-  margin: 100px 20px;
-  float: left;
+  position: absolute;
   height: 50px;
   width: 45px;
   background-color: black;
+  z-index: 10;
+  left: 2%;
+  margin-top: 5%;
 }
 .white {
   color: white;
 }
 
 .banner_1 {
-  background: url(https://static1.lenskart.com/media/desktop/img/desk-whatsapp1.jpg)
-    no-repeat;
-  background-size: 100% 100%;
-  height: 250px;
   margin: 20px auto 20px auto;
+}
+.banner_1 img {
+  width: 100%;
 }
 
-.banner_2 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/Airflex_27April_Desktop.gif)
-    no-repeat;
-  background-size: 100% 100%;
-  height: 250px;
-  margin: 20px auto 20px auto;
-}
-.banner_3 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/14thMay_Sunglasses_DesktopBanner_17thMay21.jpg)
-    no-repeat;
-  background-size: 100% 100%;
-  height: 250px;
-  margin: 20px auto 20px auto;
-}
 .style_guides {
   margin: 50px auto 20px auto;
   height: fit-content;
@@ -149,28 +142,20 @@ main content first row css */
 .grid {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: 250px 250px;
   grid-gap: 15px;
 }
-.poster_1 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Feb21/blu.jpg)
-    no-repeat;
-  background-size: 100% 100%;
+.poster img {
+  width: 100%;
 }
-.poster_2 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Feb21/cl.jpg)
-    no-repeat;
-  background-size: 100% 100%;
+
+.banner_2,
+.banner_3 {
+  height: fit-content;
+  margin: 20px auto;
 }
-.poster_3 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/KidsStylGuideBanner8thJune2021.gif)
-    no-repeat;
-  background-size: 100% 100%;
-}
-.poster_4 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/image_17thMay21.png)
-    no-repeat;
-  background-size: 100% 100%;
+.banner_2 img,
+.banner_3 img {
+  width: 100%;
 }
 
 .banner_4 {
@@ -179,25 +164,26 @@ main content first row css */
   height: fit-content;
   margin: 20px auto 20px auto;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: auto 30% auto;
   padding: 15px 0px;
+  overflow-x: hidden;
 }
-.frame_1 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/LEFTLayer4_21stMay2021.png)
-    no-repeat;
-  background-size: 100% 100%;
+.frame_1,
+.frame_3 {
+  height: fit-content;
+  width: fit-content;
+}
+.frame_1 img,
+.frame_3 img {
+  width: 100%;
 }
 
 .banner_4 iframe {
+  width: 100%;
   padding: 0%;
   margin: 0%;
   border-radius: 25px;
   border: 2px solid gray;
-}
-.frame_3 {
-  background: url(https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/RightLayer4_21stMay2021.png)
-    no-repeat;
-  background-size: 100% 100%;
 }
 
 .tollfree p {
@@ -206,4 +192,106 @@ main content first row css */
   font-family: "futura std book";
   text-align: center;
   font-size: x-large;
+}
+.insta {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.insta h2 {
+  letter-spacing: 3px;
+  color: rgb(68, 89, 98);
+  font-family: "futura std heavy";
+}
+.insta button {
+  margin-top: 20px;
+  background-color: rgb(59, 159, 149);
+  color: white;
+  font-weight: bold;
+  font-family: "futura std heavy";
+  border: none;
+  padding: 10px 25px;
+}
+
+.computer_glass {
+  margin: 100px auto 10px auto;
+}
+
+.computer_glass p {
+  margin: auto;
+  width: fit-content;
+}
+.heading {
+  display: flex;
+  width: 45%;
+  margin: auto;
+  justify-content: space-around;
+}
+.heading:nth-child(n) {
+  letter-spacing: 4px;
+}
+.heading h3 {
+  font-family: "futura std heavy";
+  color: rgb(68, 89, 98);
+}
+
+.heading p {
+  font-family: "futura std book";
+  font-size: large;
+  color: rgb(50, 156, 174);
+}
+.computer_glass > p {
+  letter-spacing: 2px;
+  font-family: "futura std book", "helvetica neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  font-size: small;
+  padding: 1%;
+}
+
+.product_slider_container {
+  height: fit-content;
+  margin: 20px auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.slide_left,
+.slide_right {
+  position: absolute;
+  top: 30%;
+  z-index: 10;
+  font-size: 2vw;
+  width: fit-content;
+  height: fit-content;
+}
+
+.slide_right {
+  display: none;
+  right: 0%;
+}
+.product_slider {
+  transition: transform 0.5s ease-out;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 28vw 28vw 28vw 28vw 28vw 28vw;
+}
+.product_slider img {
+  width: 80%;
+  padding-inline: 4rem;
+}
+
+.view_btn_container {
+  margin: auto;
+  text-align: center;
+}
+.view_btn {
+  margin: 30px auto;
+  background-color: rgb(59, 159, 149);
+  color: white;
+  font-weight: bold;
+  font-family: "futura std heavy";
+  border: none;
+  padding: 10px 20px;
+  align-self: center;
 }
