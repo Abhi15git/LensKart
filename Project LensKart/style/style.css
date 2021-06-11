@@ -108,6 +108,7 @@ input:focus {
   list-style-type: none;
 }
 .cart_items_container ul li {
+  cursor: pointer;
   word-wrap: none;
   padding-left: 2vw;
 }

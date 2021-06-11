@@ -1,0 +1,90 @@
+.refrel {
+  border: 1px solid black;
+  width: 40%;
+  height: 35px;
+  margin: 10px;
+}
+#heigth30 {
+  height: 30px;
+}
+.mbtn {
+  margin-left: 10px;
+  border: none;
+  background-color: white;
+}
+.flexed {
+  display: flex;
+  flex-flow: row wrap;
+}
+.p {
+  width: 30%;
+  margin: auto;
+}
+.fbbtn {
+  margin-top: 10px;
+  width: 50%;
+  margin: auto;
+}
+.fb {
+  margin: auto;
+  border: none;
+}
+.image {
+  width: 20px;
+  height: 20px;
+}
+.image1 {
+  margin: auto;
+}
+.checkup {
+  font-size: 15px;
+  width: 75%;
+  margin: auto;
+}
+.height20 {
+  height: 40px;
+}
+.mainbox {
+  background-color: white;
+  width: 60%;
+  margin: 30px auto;
+  padding-bottom: 35px;
+}
+.floatl {
+  float: left;
+}
+.colorg {
+  background-color: lightseagreen;
+  color: white;
+  border: none;
+}
+.width100 {
+  border-top: 1px;
+  border-left: none;
+  border-right: none;
+  width: 85%;
+  height: 35px;
+  margin: 10px;
+}
+.width50 {
+  width: 100%;
+}
+
+.floatr {
+  float: right;
+}
+.taligncenter {
+  text-align: center;
+}
+.PopUp {
+  display: none;
+  margin-top: -10px;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.651);
+}
+.pop_up_page {
+  display: block;
+}

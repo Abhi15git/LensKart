@@ -83,7 +83,6 @@ function prodSlider() {
     leftSlide[i].addEventListener("click", slideLeft);
     rightSlide[i].addEventListener("click", slideRight);
     function slideLeft() {
-      console.log("clicked");
       slider[i].style.transform = "translateX(-50%)";
       leftSlide[i].style.display = "none";
       rightSlide[i].style.display = "block";
@@ -100,4 +99,13 @@ function prodSlider() {
 
     setTimeout(slideLeft, 3000);
   }
+}
+
+function toggle(i) {
+  let wrapper = document.querySelectorAll("#wrapper_description");
+  let plus = document.querySelectorAll("#plus");
+  if (plus[i].textContent == "+") plus[i].textContent = "-";
+  else plus[i].textContent = "+";
+
+  wrapper[i].classList.toggle("description");
 }

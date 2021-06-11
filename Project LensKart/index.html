@@ -9,6 +9,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="javaScript/carousel.js"></script>
+    <script src="javaScript/signPop.js"></script>
+    <link rel="stylesheet" href="/style/signPop.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -26,6 +28,38 @@
   </head>
   <body>
     <div class="container">
+      <div id="signupPopUp" class="PopUp">
+        <button
+          onclick="signPagePopOut()"
+          style="
+            position: fixed;
+            left: 80%;
+            background-color: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.781);
+          "
+        >
+          <i class="fas fa-times fa-2x"></i>
+        </button>
+        <div class="mainbox" id="mainbox">
+          <div class="floatl flexed">
+            <img
+              src="https://static1.lenskart.com/media/desktop/img/sign-up.png"
+              alt=" banner"
+              srcset=""
+            />
+          </div>
+          <div class="flexed">
+            <div class="width50">
+              <button class="mbtn" onclick="signup()">Sign Up</button>
+              <button class="mbtn" onclick="signin()">Sign In</button>
+
+              <form class="parent" action="#"></form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="header">
         <div class="top_header">
           <nav class="navList">
@@ -69,7 +103,10 @@
             <div class="cartWrapper">
               <div class="cart_items_container">
                 <ul>
-                  <li class="cart_item"><a href="">Sign In & Sign Up</a></li>
+                  <li class="cart_item" onclick="signPage()">
+                    <a>Sign In & Sign Up</a>
+                  </li>
+
                   <li class="cart_item"><a href="">Track Order</a></li>
                   <li class="cart_item3">
                     <a href=""><i class="shortlist_icon"></i> Shortlist</a>
@@ -1943,7 +1980,201 @@
         <div class="row view_btn_container">
           <button class="view_btn">VIEW RANGE</button>
         </div>
+
+        <div class="customer_review">
+          <div>
+            <iframe
+              width="505"
+              height="323"
+              src="https://www.youtube.com/embed/pzGo1BLrLVM?list=TLGGq8C6NWz3cqUxMTA2MjAyMQ"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div>
+            <img
+              src="https://static1.lenskart.com/media/desktop/img/tribe.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="row hall_of_fame">
+          <img
+            src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/HallOfFame_1912x360_15thApril21.png"
+            alt=""
+          />
+        </div>
+
+        <div class="customer_review">
+          <div>
+            <iframe
+              width="505"
+              height="323"
+              src="https://www.youtube.com/embed/peBA5Sqll-0?list=TLGG4r2PHnmJEWMxMTA2MjAyMQ"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div>
+            <img
+              src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/4_7thApril2122SE.png"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="about">
+          <h1>Buy The Best Eyewear From Lenskart</h1>
+          <p>
+            Lenskart is the leading e-commerce portal for eyewear in India. It
+            has revolutionised the eyewear industry in the country with its
+            omni-channel approach. From an ever-growing number of offline stores
+            across major cities in the country to innovative integration of
+            technology while purchasing online, Lenskart caters to every
+            customer with several deals and offers.
+          </p>
+          <br />
+          <p>
+            A one-stop online solution for purchasing eyewear and its
+            accessories, Lenskart delivers them right at your doorstep with
+            convenient methods of payment. Sunglasses as well as eyeglasses are
+            available for men and women in a diverse array of styles and trendy
+            colours. If you want to try out contact lenses, pick the ones of
+            your choice from the extensive variety of coloured contact lenses
+            from our online store.
+          </p>
+          <br /><br />
+          <div class="about_glasses">
+            <div class="glasses_wrapper" id="glass_wrapper" onclick="toggle(0)">
+              <div class="wrapper_item">
+                <h5>SUNGLASSES</h5>
+                <h5 id="plus">+</h5>
+              </div>
+              <div class="wrapper_description" id="wrapper_description">
+                <br />
+                <p>
+                  Sunglasses help protect the eyes from the damaging UV rays of
+                  the sun and, today, they have become an essential fashion
+                  accessory too. The classic styles of shades never go out of
+                  fashion as they are reiterated with each passing trend to suit
+                  one’s contemporary style sensibility. With different
+                  combinations of frame and lens colours, sunglasses appeal to
+                  all ages irrespective of gender. Luxury eyewear brands such as
+                  Linda Farrow and Tom Ford, among others have an excellent
+                  collection of aviator-shaped and cat-eye goggles that go an
+                  extra mile to create style and provide luxury. Vogue, Tommy
+                  Hilfiger, French Connection, Ray-Ban, John Jacobs and Vincent
+                  Chase, on the other hand, have plenty of sunglasses for women
+                  as well in various elegant colours and chic styles. Ray-Ban
+                  goggles are popular for their timeless frame designs such as
+                  the aviator-shaped, wayfarer-shaped and browline styles. These
+                  shades are available in plenty of colours on the frames and
+                  lenses that would go with any modern outfit effortlessly.
+                  Brands such as Carrera and Calvin Klein, among several others
+                  have excellent variations of the classic aviator-shaped and
+                  wayfarer-shaped goggles with sporty and suave lens colours.
+                  Sunglasses for men are available from the best brands such as
+                  Hugo Boss, Oakley and John Jacobs, among others, and are ideal
+                  for various occasions.
+                </p>
+                <br />
+                <p>
+                  <b>Popular Sunglasses Brands-</b> Ray Ban Sunglasses, Oakley
+                  Sunglasses, Carrera Sunglasses, IDEE Sunglasses
+                </p>
+              </div>
+            </div>
+
+            <div class="glasses_wrapper" id="glass_wrapper" onclick="toggle(1)">
+              <div class="wrapper_item">
+                <h5>SUNGLASSES</h5>
+                <h5 id="plus">+</h5>
+              </div>
+              <div class="wrapper_description" id="wrapper_description">
+                <br />
+                <p>
+                  Sunglasses help protect the eyes from the damaging UV rays of
+                  the sun and, today, they have become an essential fashion
+                  accessory too. The classic styles of shades never go out of
+                  fashion as they are reiterated with each passing trend to suit
+                  one’s contemporary style sensibility. With different
+                  combinations of frame and lens colours, sunglasses appeal to
+                  all ages irrespective of gender. Luxury eyewear brands such as
+                  Linda Farrow and Tom Ford, among others have an excellent
+                  collection of aviator-shaped and cat-eye goggles that go an
+                  extra mile to create style and provide luxury. Vogue, Tommy
+                  Hilfiger, French Connection, Ray-Ban, John Jacobs and Vincent
+                  Chase, on the other hand, have plenty of sunglasses for women
+                  as well in various elegant colours and chic styles. Ray-Ban
+                  goggles are popular for their timeless frame designs such as
+                  the aviator-shaped, wayfarer-shaped and browline styles. These
+                  shades are available in plenty of colours on the frames and
+                  lenses that would go with any modern outfit effortlessly.
+                  Brands such as Carrera and Calvin Klein, among several others
+                  have excellent variations of the classic aviator-shaped and
+                  wayfarer-shaped goggles with sporty and suave lens colours.
+                  Sunglasses for men are available from the best brands such as
+                  Hugo Boss, Oakley and John Jacobs, among others, and are ideal
+                  for various occasions.
+                </p>
+                <br />
+                <p>
+                  <b>Popular Sunglasses Brands-</b> Ray Ban Sunglasses, Oakley
+                  Sunglasses, Carrera Sunglasses, IDEE Sunglasses
+                </p>
+              </div>
+            </div>
+
+            <div class="glasses_wrapper" id="glass_wrapper" onclick="toggle(2)">
+              <div class="wrapper_item">
+                <h5>SUNGLASSES</h5>
+                <h5 id="plus">+</h5>
+              </div>
+              <div class="wrapper_description" id="wrapper_description">
+                <br />
+                <p>
+                  Sunglasses help protect the eyes from the damaging UV rays of
+                  the sun and, today, they have become an essential fashion
+                  accessory too. The classic styles of shades never go out of
+                  fashion as they are reiterated with each passing trend to suit
+                  one’s contemporary style sensibility. With different
+                  combinations of frame and lens colours, sunglasses appeal to
+                  all ages irrespective of gender. Luxury eyewear brands such as
+                  Linda Farrow and Tom Ford, among others have an excellent
+                  collection of aviator-shaped and cat-eye goggles that go an
+                  extra mile to create style and provide luxury. Vogue, Tommy
+                  Hilfiger, French Connection, Ray-Ban, John Jacobs and Vincent
+                  Chase, on the other hand, have plenty of sunglasses for women
+                  as well in various elegant colours and chic styles. Ray-Ban
+                  goggles are popular for their timeless frame designs such as
+                  the aviator-shaped, wayfarer-shaped and browline styles. These
+                  shades are available in plenty of colours on the frames and
+                  lenses that would go with any modern outfit effortlessly.
+                  Brands such as Carrera and Calvin Klein, among several others
+                  have excellent variations of the classic aviator-shaped and
+                  wayfarer-shaped goggles with sporty and suave lens colours.
+                  Sunglasses for men are available from the best brands such as
+                  Hugo Boss, Oakley and John Jacobs, among others, and are ideal
+                  for various occasions.
+                </p>
+                <br />
+                <p>
+                  <span><b>Popular Sunglasses Brands-</b></span> Ray Ban
+                  Sunglasses, Oakley Sunglasses, Carrera Sunglasses, IDEE
+                  Sunglasses
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
+
+      <footer></footer>
     </div>
   </body>
 </html>
