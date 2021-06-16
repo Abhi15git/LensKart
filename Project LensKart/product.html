@@ -1,34 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/80a8c07c9b.js"
-      crossorigin="anonymous"
-    ></script>
+    <style>
+      * {
+        font-family: "futura std medium";
+      }
+      @font-face {
+        font-family: "futura std heavy";
+        src: url("/fonts/FuturaStdHeavy.woff") format("woff");
+      }
+      @font-face {
+        font-family: "futura std book";
+        src: url("/fonts/FuturaStdBook.woff") format("woff");
+      }
+      @font-face {
+        font-family: "futura std medium";
+        src: url("/fonts/FuturaStdMedium.woff") format("woff");
+      }
+      .innerimg {
+        text-align: center;
+        color: black;
+      }
+      .row {
+        width: 95%;
+        margin: auto;
+        padding: 2%;
+        display: grid;
+        grid-template-columns: 32% 32% 32%;
+        grid-gap: 2%;
+      }
+      .far {
+        float: right;
+        font-size: large;
+        padding: 5px;
+      }
+      .fass {
+        float: right;
+        font-size: large;
+        padding: 5px;
+        color: red;
+      }
+      .far:hover {
+        color: red;
+        transform: scale(1.2);
+        transition: transform 0.3s ease;
+      }
+      .sort_container {
+        background-color: white;
+        overflow-y: scroll;
+        height: 100vh;
+        float: right;
+        width: 80%;
+        border-left: 1.5px solid rgb(237, 237, 237);
+      }
+      .sort_container .container_head {
+        height: 40px;
+        margin: 0%;
+        background-color: rgb(237, 237, 237);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .text {
+        font-family: "futura std medium";
+        letter-spacing: 1px;
+        opacity: 0.8;
+        font-size: 1.1vw;
+      }
+      .sort {
+        font-family: "futura std heavy";
+        letter-spacing: 1px;
+        font-size: 1vw;
+        font-weight: bold;
+        color: rgb(51, 183, 185);
+      }
+      .icon {
+        margin-right: -8px;
+      }
+      .arrow {
+        color: rgb(51, 183, 185);
+      }
+      .container::-webkit-scrollbar {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      .imageBox:hover img {
+        opacity: 0;
+      }
+      .box_wrapper {
+        width: fit-content;
+        height: 100%;
+      }
+      .box_wrapper:hover .box {
+        box-shadow: 2px 2px 8px rgb(151, 151, 151);
+        height: 94%;
+        transition: height 0.3s ease-in, box-shadow 0.3s linear;
+      }
+      .box {
+        width: auto;
+        min-width: 200px;
+        height: 100%;
+        min-height: fit-content;
+        transform-origin: 50% 0%;
+      }
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+      .imageBox {
+        width: 70%;
+        margin: 0px auto;
+      }
+      .imageBox img {
+        width: 100%;
+      }
+      .detail_box {
+        padding-inline: 1rem;
+      }
+
+      .catagory {
+        font-family: "futura std book";
+        font-size: 1.05vw;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      .rating {
+        display: inline-block;
+        padding: 2px 8px 2px 4px;
+        border-radius: 8px;
+        font-size: 0.9vw;
+        color: white;
+        background-color: rgb(40, 199, 191);
+        font-family: "futura std book";
+      }
+      .price {
+        font-weight: bolder;
+        font-family: "futura std medium";
+      }
+      .size {
+        font-family: "futura std book";
+        font-size: 1vw;
+        color: rgba(0, 0, 0, 0.753);
+      }
+      .pdtclr {
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        float: right;
+      }
+      .size {
+        opacity: 0;
+      }
+      .box_wrapper:hover .size {
+        opacity: 1;
+      }
+      .box_wrapper:hover .detail_box {
+        transition: transform 0.3s ease;
+        transform: translateY(-30%);
+      }
+
+      .flexed {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .frame {
+        font-size: 1vw;
+        overflow-y: scroll;
+        width: 20%;
+        height: 100vh;
+      }
+      .frame::-webkit-scrollbar {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .framebox {
+        text-align: center;
+        width: 30%;
+        border: 1px solid gainsboro;
+        color: lightgray;
+      }
+      .framebox:hover {
+        border: 1px solid black;
+      }
+      .framebox img {
+        width: 100%;
+        padding: 0%;
+      }
+      .column-flex {
+        display: flex;
+        flex-flow: column;
+        color: lightgray;
+      }
+
+      .sc:hover {
+        color: black;
+      }
+
+      .drop-down {
+        height: 50px;
+        width: 98%;
+        margin: auto;
+        border-left: none;
+        border: 1px solid gainsboro;
+        color: slategray;
+        font-weight: bolder;
+      }
+      .whole-content {
+        margin: auto;
+        width: 96%;
+        display: flex;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      .bottom30 {
+        margin-bottom: 30px;
+      }
+      .star {
+        color: white;
+        font-size: small;
+        padding: 0px 0px 0px 5px;
+      }
+    </style>
     <link
       href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/signPop.css" />
+    <link rel="stylesheet" href="style/footer.css" />
+    <link rel="stylesheet" href="style/shortlist-cart.css" />
+    <link rel="stylesheet" href="style/cart.css" />
+    <script src="javaScript/signPop.js"></script>
+    <script src="javaScript/shortlist-cart-popUp.js"></script>
     <script
       src="https://kit.fontawesome.com/80a8c07c9b.js"
       crossorigin="anonymous"
     ></script>
-    <script src="javaScript/shortlist-cart-popUp.js"></script>
-    <script src="javaScript/carousel.js"></script>
-    <script src="javaScript/signPop.js"></script>
-    <link rel="stylesheet" href="style/footer.css" />
-    <link rel="stylesheet" href="/style/signPop.css" />
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/notice.css" />
-    <link rel="stylesheet" href="style/shortlist-cart.css" />
-    <link rel="stylesheet" href="style/cart.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
@@ -127,11 +335,12 @@
           <div class="top_nav">
             <div class="logo">
               <div class="logo_container">
-                <img
-                  src="https://static1.lenskart.com/media/desktop/img/lk-logo-f.png"
-                  alt="lenskart"
-                  title="Lenskart"
-                />
+                <a href="index.html"
+                  ><img
+                    src="https://static1.lenskart.com/media/desktop/img/lk-logo-f.png"
+                    alt="lenskart"
+                    title="Lenskart"
+                /></a>
               </div>
             </div>
             <div class="search">
@@ -1337,890 +1546,362 @@
           </div>
         </div>
       </div>
-
-      <main>
-        <div class="glasses_container">
-          <center>
-            <ul class="glasses">
-              <div class="dropdown_card">
-                <li>
-                  <img
-                    src="https://static1.lenskart.com/media/desktop/img/site-images/eyewid1.jpg"
-                    alt=""
-                  />
-                  <div class="tag">Eyeglasses</div>
-                </li>
-                <div class="dropdown_window">
-                  <div class="dropdown_window_1">
-                    <img
-                      src="https://static1.lenskart.com/media/desktop/img/14-June-20/eyeicon.jpg"
-                      alt=""
-                    />
-                    <div class="tag">Eyeglasses</div>
-                  </div>
-                  <div class="dropdown_window_2">
-                    <table>
-                      <tr>
-                        <td>
-                          <div><b>Air Light-Weight</b></div>
-                          <div>Powered Lenses</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹999</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Premium Lenses</b></div>
-                          <div>John Jacobs, Ray-Ban</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹3000</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Kids Glasses</b></div>
-                          <div>Powered Lenses</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹499</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Lens Cleaner</b></div>
-                          <div><br /></div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹80</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a class="viewall_link" href="">View All</a></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
+      <br />
+      <div class="whole-content">
+        <div class="frame">
+          <div class="bottom30">
+            FRAME TYPE
+            <div class="flexed">
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/FullRim.png"
+                  alt=""
+                />Full Rim
               </div>
-
-              <div class="dropdown_card">
-                <li>
-                  <img
-                    src="https://static1.lenskart.com/media/desktop/img/site-images/sunwid2.jpg"
-                    alt=""
-                  />
-                  <div class="tag">Sunglasses</div>
-                </li>
-                <div class="dropdown_window">
-                  <div class="dropdown_window_1">
-                    <img
-                      src="https://static1.lenskart.com/media/desktop/img/14-June-20/sunicon.jpg"
-                      alt=""
-                    />
-                    <div class="tag">Sunglasses</div>
-                  </div>
-                  <div class="dropdown_window_2">
-                    <table>
-                      <tr>
-                        <td>
-                          <div><b>Vincent Chase</b></div>
-                          <div>with Gold Membership</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹999</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Premium Range</b></div>
-                          <div>John Jacobs, Ray-Ban</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹3000</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Power Sunglasses</b></div>
-                          <div>UV 400 | Clear Vision</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹499</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Online Exclusive</b></div>
-                          <div>Limited Period</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹499</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a class="viewall_link" href="">View All</a></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/Rimless.png"
+                  alt=""
+                />Rimless
               </div>
-
-              <div class="dropdown_card">
-                <li>
-                  <img
-                    src="https://static1.lenskart.com/media/desktop/img/site-images/phonewid3.jpg"
-                    alt=""
-                  />
-                  <div class="tag">Blue 0 Computer Glasses</div>
-                </li>
-                <div class="dropdown_window">
-                  <div class="dropdown_window_1">
-                    <img
-                      src="https://static1.lenskart.com/media/desktop/img/14-June-20/phonepcicon.jpg"
-                      alt=""
-                    />
-                    <div class="tag">Blue 0 Computer Glasses</div>
-                  </div>
-                  <div class="dropdown_window_2">
-                    <table>
-                      <tr>
-                        <td>
-                          <div><b>Blu 0 Computer Glasses</b></div>
-                          <div>Blu Zero Power</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹999</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Premium Range</b></div>
-                          <div>Blu Zero Power</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹2000</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Kids Range</b></div>
-                          <div>Blue Zero Power</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹499</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><a class="viewall_link" href="">View All</a></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Half Rim
               </div>
-
-              <div class="dropdown_card">
-                <li>
-                  <img
-                    src="https://static1.lenskart.com/media/desktop/img/site-images/clwid4.jpg"
-                    alt=""
-                  />
-                  <div class="tag">Contact Lenses</div>
-                </li>
-                <div class="dropdown_window">
-                  <div class="dropdown_window_1">
-                    <img
-                      src="https://static1.lenskart.com/media/desktop/img/14-June-20/clicon.jpg"
-                      alt=""
-                    />
-                    <div class="tag">Contact Lenses</div>
-                  </div>
-                  <div class="dropdown_window_2">
-                    <table>
-                      <tr>
-                        <td>
-                          <div><b>Clear with Power</b></div>
-                          <div><br /></div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹99</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Color with Power</b></div>
-                          <div><br /></div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹299</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Color without Power</b></div>
-                          <div><br /></div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹120</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Lens Solution</b></div>
-                          <div><br /></div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹123</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              <div class="dropdown_card">
-                <li>
-                  <img
-                    src="https://static1.lenskart.com/media/desktop/img/site-images/readingwid5.jpg"
-                    alt=""
-                  />
-                  <div class="tag">Reading Glasses</div>
-                </li>
-                <div class="dropdown_window">
-                  <div class="dropdown_window_1">
-                    <img
-                      src="https://static1.lenskart.com/media/desktop/img/14-June-20/thinoptics-icon.jpg"
-                      alt=""
-                    />
-                    <div class="tag">Reading Glasses</div>
-                  </div>
-                  <div class="dropdown_window_2">
-                    <table>
-                      <tr>
-                        <td>
-                          <div><b>Thinoptics</b></div>
-                          <div>Reading Glasses</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹849</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Classic</b></div>
-                          <div>Reading Glasses</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹399</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              <div class="dropdown_card">
-                <li>
-                  <img
-                    src="	https://static1.lenskart.com/media/desktop/img/mega2.jpg"
-                    alt=""
-                  />
-                  <div class="tag">Mega Sale - 40% Off</div>
-                </li>
-                <div class="dropdown_window">
-                  <div class="dropdown_window_1">
-                    <img
-                      src="https://static1.lenskart.com/media/desktop/img/mega1.jpg"
-                      alt=""
-                    />
-                    <div class="tag">Mega Sale - 40% Off</div>
-                  </div>
-                  <div class="dropdown_window_2">
-                    <table>
-                      <tr>
-                        <td>
-                          <div><b>Online Only Eyeglasses</b></div>
-                          <div>Buy 1 Get 1 Free</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹900</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div><b>Online Only Sunglasses</b></div>
-                          <div>Buy 1 Get 1 Free</div>
-                        </td>
-                        <td>
-                          <div>Starting</div>
-                          <div><b>₹900</b></div>
-                        </td>
-                        <td>
-                          <i class="fas fa-chevron-right"></i>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </ul>
-          </center>
-        </div>
-
-        <div class="row notice">
-          <table>
-            <tbody>
-              <tr>
-                <td><h2>We are Serving</h2></td>
-                <td>
-                  During lockdown, all lenskart services are open: Stores,
-                  Online, Home or Call
-                </td>
-                <td>
-                  <b
-                    ><a href=""
-                      >Know More <i class="fas fa-chevron-right"></i></a
-                  ></b>
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td>1800-111-111</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="carousel_container margin_top">
-          <div class="carousel" id="carousel">
-            <img
-              src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/RevisedAllbannersBanner01Updated_8thJune2021.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="row banner_1 margin_top">
-          <img
-            src="https://static1.lenskart.com/media/desktop/img/desk-whatsapp1.jpg"
-            alt=""
-          />
-        </div>
-
-        <div class="row style_guides margin_top">
-          <h1>Style Guides</h1>
-          <div class="grid margin_top">
-            <div class="poster">
-              <img
-                src="https://static1.lenskart.com/media/desktop/img/Feb21/blu.jpg"
-                alt=""
-              />
-            </div>
-            <div class="poster">
-              <img
-                src="https://static1.lenskart.com/media/desktop/img/Feb21/cl.jpg"
-                alt=""
-              />
-            </div>
-            <div class="poster">
-              <img
-                src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/KidsStylGuideBanner8thJune2021.gif"
-                alt=""
-              />
-            </div>
-            <div class="poster">
-              <img
-                src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/image_17thMay21.png"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="row banner_2 margin_top">
-          <img
-            src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/Airflex_27April_Desktop.gif"
-            alt=""
-          />
-        </div>
-        <div class="row banner_3 margin_top">
-          <img
-            src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/14thMay_Sunglasses_DesktopBanner_17thMay21.jpg"
-            alt=""
-          />
-        </div>
-
-        <div class="banner_4 margin_top">
-          <div class="frame_1">
-            <img
-              src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/LEFTLayer4_21stMay2021.png"
-              alt=""
-            />
-          </div>
-
-          <div class="frame_2">
-            <iframe
-              width="367"
-              height="278"
-              src="https://www.youtube.com/embed/RGlbM7CVSjQ?list=TLGG2rhosZmupkEwOTA2MjAyMQ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="frame_3">
-            <img
-              src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/RightLayer4_21stMay2021.png"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <hr />
-        <div class="tollfree">
-          <p>
-            Need Assistance in Buying? Talk to our Eyewear Expert. Give us a
-            Call at : 1800-111-111
-          </p>
-        </div>
-        <hr />
-
-        <div class="row insta">
-          <h2>SHOP FROM OUR INSTAGRAM</h2>
-          <button>EXPLORE MORE</button>
-        </div>
-
-        <div class="row computer_glass">
-          <div class="heading">
-            <h3>COMPUTER EYEGLASSES</h3>
-            <p>STARTING AT ₹999</p>
-          </div>
-          <p>Block 98% of harmful rays from Digital Devices</p>
-        </div>
-
-        <div class="row product_slider_container">
-          <div class="slide_left" id="slideLeft">
-            <i
-              class="fas fa-chevron-left fa-2x"
-              style="color: rgba(128, 128, 128, 0.767)"
-            ></i>
-          </div>
-          <div class="slide_right" id="slideRight">
-            <i
-              class="fas fa-chevron-right fa-2x"
-              style="color: rgba(128, 128, 128, 0.733)"
-            ></i>
-          </div>
-          <div class="product_slider" id="product_slider">
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14062-c2-eyeglasses_g_0738_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14061-c3-eyeglasses_g_0731_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e13737-full-rim-rec-eye-c3-eyeglasses_g_0724_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13526-c2-eyeglasses_g_2159.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13526-c1-eyeglasses_g_8388.jpg"
-              alt=""
-            />
-            <img
-              src="https://static2.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13527-c1-eyeglasses_g_8408.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="row view_btn_container">
-          <button class="view_btn">VIEW RANGE</button>
-        </div>
-
-        <div class="row computer_glass">
-          <div class="heading">
-            <h3>COMPUTER EYEGLASSES</h3>
-            <p>STARTING AT ₹999</p>
-          </div>
-          <p>Block 98% of harmful rays from Digital Devices</p>
-        </div>
-
-        <div class="row product_slider_container">
-          <div class="slide_left" id="slideLeft">
-            <i
-              class="fas fa-chevron-left fa-2x"
-              style="color: rgba(128, 128, 128, 0.767)"
-            ></i>
-          </div>
-          <div class="slide_right" id="slideRight">
-            <i
-              class="fas fa-chevron-right fa-2x"
-              style="color: rgba(128, 128, 128, 0.733)"
-            ></i>
-          </div>
-          <div class="product_slider" id="product_slider">
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14062-c2-eyeglasses_g_0738_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14061-c3-eyeglasses_g_0731_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e13737-full-rim-rec-eye-c3-eyeglasses_g_0724_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13526-c2-eyeglasses_g_2159.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13526-c1-eyeglasses_g_8388.jpg"
-              alt=""
-            />
-            <img
-              src="https://static2.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13527-c1-eyeglasses_g_8408.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="row view_btn_container">
-          <button class="view_btn">VIEW RANGE</button>
-        </div>
-
-        <div class="row computer_glass">
-          <div class="heading">
-            <h3>COMPUTER EYEGLASSES</h3>
-            <p>STARTING AT ₹999</p>
-          </div>
-          <p>Block 98% of harmful rays from Digital Devices</p>
-        </div>
-
-        <div class="row product_slider_container">
-          <div class="slide_left" id="slideLeft">
-            <i
-              class="fas fa-chevron-left fa-2x"
-              style="color: rgba(128, 128, 128, 0.767)"
-            ></i>
-          </div>
-          <div class="slide_right" id="slideRight">
-            <i
-              class="fas fa-chevron-right fa-2x"
-              style="color: rgba(128, 128, 128, 0.733)"
-            ></i>
-          </div>
-          <div class="product_slider" id="product_slider">
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14062-c2-eyeglasses_g_0738_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e14061-c3-eyeglasses_g_0731_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-blu-lb-e13737-full-rim-rec-eye-c3-eyeglasses_g_0724_1.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13526-c2-eyeglasses_g_2159.jpg"
-              alt=""
-            />
-            <img
-              src="https://static1.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13526-c1-eyeglasses_g_8388.jpg"
-              alt=""
-            />
-            <img
-              src="https://static2.lenskart.com/media/catalog/product/cache/1/small_image/376x180/9df78eab33525d08d6e5fb8d27136e95//v/i/vincent-chase-vc-e13527-c1-eyeglasses_g_8408.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="row view_btn_container">
-          <button class="view_btn">VIEW RANGE</button>
-        </div>
-
-        <div class="customer_review">
-          <div>
-            <iframe
-              width="505"
-              height="323"
-              src="https://www.youtube.com/embed/pzGo1BLrLVM?list=TLGGq8C6NWz3cqUxMTA2MjAyMQ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div>
-            <img
-              src="https://static1.lenskart.com/media/desktop/img/tribe.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="row hall_of_fame">
-          <img
-            src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/HallOfFame_1912x360_15thApril21.png"
-            alt=""
-          />
-        </div>
-
-        <div class="customer_review">
-          <div>
-            <iframe
-              width="505"
-              height="323"
-              src="https://www.youtube.com/embed/peBA5Sqll-0?list=TLGG4r2PHnmJEWMxMTA2MjAyMQ"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div>
-            <img
-              src="https://static1.lenskart.com/media/desktop/img/Nov20/25-Nov/4_7thApril2122SE.png"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="about">
-          <h1>Buy The Best Eyewear From Lenskart</h1>
-          <p>
-            Lenskart is the leading e-commerce portal for eyewear in India. It
-            has revolutionised the eyewear industry in the country with its
-            omni-channel approach. From an ever-growing number of offline stores
-            across major cities in the country to innovative integration of
-            technology while purchasing online, Lenskart caters to every
-            customer with several deals and offers.
-          </p>
-          <br />
-          <p>
-            A one-stop online solution for purchasing eyewear and its
-            accessories, Lenskart delivers them right at your doorstep with
-            convenient methods of payment. Sunglasses as well as eyeglasses are
-            available for men and women in a diverse array of styles and trendy
-            colours. If you want to try out contact lenses, pick the ones of
-            your choice from the extensive variety of coloured contact lenses
-            from our online store.
-          </p>
-          <br /><br />
-          <div class="about_glasses">
-            <div class="glasses_wrapper" id="glass_wrapper" onclick="toggle(0)">
-              <div class="wrapper_item">
-                <h5>SUNGLASSES</h5>
-                <h5 id="plus">+</h5>
-              </div>
-              <div class="wrapper_description" id="wrapper_description">
-                <br />
-                <p>
-                  Sunglasses help protect the eyes from the damaging UV rays of
-                  the sun and, today, they have become an essential fashion
-                  accessory too. The classic styles of shades never go out of
-                  fashion as they are reiterated with each passing trend to suit
-                  one’s contemporary style sensibility. With different
-                  combinations of frame and lens colours, sunglasses appeal to
-                  all ages irrespective of gender. Luxury eyewear brands such as
-                  Linda Farrow and Tom Ford, among others have an excellent
-                  collection of aviator-shaped and cat-eye goggles that go an
-                  extra mile to create style and provide luxury. Vogue, Tommy
-                  Hilfiger, French Connection, Ray-Ban, John Jacobs and Vincent
-                  Chase, on the other hand, have plenty of sunglasses for women
-                  as well in various elegant colours and chic styles. Ray-Ban
-                  goggles are popular for their timeless frame designs such as
-                  the aviator-shaped, wayfarer-shaped and browline styles. These
-                  shades are available in plenty of colours on the frames and
-                  lenses that would go with any modern outfit effortlessly.
-                  Brands such as Carrera and Calvin Klein, among several others
-                  have excellent variations of the classic aviator-shaped and
-                  wayfarer-shaped goggles with sporty and suave lens colours.
-                  Sunglasses for men are available from the best brands such as
-                  Hugo Boss, Oakley and John Jacobs, among others, and are ideal
-                  for various occasions.
-                </p>
-                <br />
-                <p>
-                  <b>Popular Sunglasses Brands-</b> Ray Ban Sunglasses, Oakley
-                  Sunglasses, Carrera Sunglasses, IDEE Sunglasses
-                </p>
-              </div>
-            </div>
-
-            <div class="glasses_wrapper" id="glass_wrapper" onclick="toggle(1)">
-              <div class="wrapper_item">
-                <h5>SUNGLASSES</h5>
-                <h5 id="plus">+</h5>
-              </div>
-              <div class="wrapper_description" id="wrapper_description">
-                <br />
-                <p>
-                  Sunglasses help protect the eyes from the damaging UV rays of
-                  the sun and, today, they have become an essential fashion
-                  accessory too. The classic styles of shades never go out of
-                  fashion as they are reiterated with each passing trend to suit
-                  one’s contemporary style sensibility. With different
-                  combinations of frame and lens colours, sunglasses appeal to
-                  all ages irrespective of gender. Luxury eyewear brands such as
-                  Linda Farrow and Tom Ford, among others have an excellent
-                  collection of aviator-shaped and cat-eye goggles that go an
-                  extra mile to create style and provide luxury. Vogue, Tommy
-                  Hilfiger, French Connection, Ray-Ban, John Jacobs and Vincent
-                  Chase, on the other hand, have plenty of sunglasses for women
-                  as well in various elegant colours and chic styles. Ray-Ban
-                  goggles are popular for their timeless frame designs such as
-                  the aviator-shaped, wayfarer-shaped and browline styles. These
-                  shades are available in plenty of colours on the frames and
-                  lenses that would go with any modern outfit effortlessly.
-                  Brands such as Carrera and Calvin Klein, among several others
-                  have excellent variations of the classic aviator-shaped and
-                  wayfarer-shaped goggles with sporty and suave lens colours.
-                  Sunglasses for men are available from the best brands such as
-                  Hugo Boss, Oakley and John Jacobs, among others, and are ideal
-                  for various occasions.
-                </p>
-                <br />
-                <p>
-                  <b>Popular Sunglasses Brands-</b> Ray Ban Sunglasses, Oakley
-                  Sunglasses, Carrera Sunglasses, IDEE Sunglasses
-                </p>
-              </div>
-            </div>
-
-            <div class="glasses_wrapper" id="glass_wrapper" onclick="toggle(2)">
-              <div class="wrapper_item">
-                <h5>SUNGLASSES</h5>
-                <h5 id="plus">+</h5>
-              </div>
-              <div class="wrapper_description" id="wrapper_description">
-                <br />
-                <p>
-                  Sunglasses help protect the eyes from the damaging UV rays of
-                  the sun and, today, they have become an essential fashion
-                  accessory too. The classic styles of shades never go out of
-                  fashion as they are reiterated with each passing trend to suit
-                  one’s contemporary style sensibility. With different
-                  combinations of frame and lens colours, sunglasses appeal to
-                  all ages irrespective of gender. Luxury eyewear brands such as
-                  Linda Farrow and Tom Ford, among others have an excellent
-                  collection of aviator-shaped and cat-eye goggles that go an
-                  extra mile to create style and provide luxury. Vogue, Tommy
-                  Hilfiger, French Connection, Ray-Ban, John Jacobs and Vincent
-                  Chase, on the other hand, have plenty of sunglasses for women
-                  as well in various elegant colours and chic styles. Ray-Ban
-                  goggles are popular for their timeless frame designs such as
-                  the aviator-shaped, wayfarer-shaped and browline styles. These
-                  shades are available in plenty of colours on the frames and
-                  lenses that would go with any modern outfit effortlessly.
-                  Brands such as Carrera and Calvin Klein, among several others
-                  have excellent variations of the classic aviator-shaped and
-                  wayfarer-shaped goggles with sporty and suave lens colours.
-                  Sunglasses for men are available from the best brands such as
-                  Hugo Boss, Oakley and John Jacobs, among others, and are ideal
-                  for various occasions.
-                </p>
-                <br />
-                <p>
-                  <span><b>Popular Sunglasses Brands-</b></span> Ray Ban
-                  Sunglasses, Oakley Sunglasses, Carrera Sunglasses, IDEE
-                  Sunglasses
-                </p>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
               </div>
             </div>
           </div>
+
+          <!-- Frame color -->
+          <div class="bottom30">
+            FRAME COLOR
+            <div class="column-flex" style="overflow-y: scroll; height: 200px">
+              <div class="sc">
+                <input
+                  type="radio"
+                  value="black"
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />black
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value="brown"
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />brown
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value="blue"
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />blue
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />grey
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />silver
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />gunmen
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />golden
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />red
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />transparent
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />gold
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />tortoise
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />pink
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />pink gold
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />purple
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />green
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />orange
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />white
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />clear
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />copper
+              </div>
+              <div class="sc">
+                <input
+                  type="radio"
+                  value=""
+                  name="radioColor"
+                  onclick="colorFilter()"
+                />yellow
+              </div>
+            </div>
+          </div>
+
+          <!-- Frame shape -->
+          <div class="bottom30">
+            FRAME SHAPE
+            <div class="flexed">
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/FullRim.png"
+                  alt=""
+                />Full Rim
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/Rimless.png"
+                  alt=""
+                />Rimless
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Half Rim
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+              <div class="framebox">
+                <img
+                  src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
+                  alt=""
+                />Eye Care
+              </div>
+            </div>
+          </div>
+
+          <!-- drop-down -->
+          <select class="drop-down" name="cars">
+            <option>BRANDS</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>FRAME SIZE</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>GENDER</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>MATERIAL</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>PRICE</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>WEIGHT GROUP</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>PRESCRIPTION TYPE</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>COLLECTION</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>GLASS COLOR</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
+          <select class="drop-down" name="cars">
+            <option>FRAME WIDTH</option>
+            <option>JOHN JACOBS</option>
+            <option>LENSCART AIR</option>
+            <option>VINCENT CHASE</option>
+            <option>VINCENT CHAS COMPUTER GLASSES</option>
+          </select>
         </div>
-      </main>
+        <div class="sort_container" id="container">
+          <div class="container_head">
+            <div class="text">NEW ARRIVALS CLASSIC EYEGLASSES</div>
+            <div class="sort">
+              <label for="sort"
+                ><i class="fas arrow fa-long-arrow-alt-up icon"></i>
+                <i class="fas arrow fa-long-arrow-alt-down"></i>SORT BY</label
+              ><select id="sortBy">
+                <option value="none" selected disabled hidden>Filters</option>
+                <option value="Best Sellers">Best Sellers</option>
+                <option value="Price Low to High">Price : Low to High</option>
+                <option value="Price High to Low">Price : High to Low</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <footer>
         <div class="foot">
@@ -2448,3 +2129,315 @@
 
   <script src="javaScript/cart.js"></script>
 </html>
+<script>
+  let item = [
+    {
+      framecolor: "black",
+      size: "Medium",
+      productcategory: "Lenskart Air",
+      rating: "4.4",
+      productName: "Blue Full Rim Round Eyeglasses",
+      productid: 0,
+      imageBg:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9929.jpg",
+      imageFg:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9930.jpg",
+      imageM1:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_8759_lk_2.jpg",
+      imageM2:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_8759_lk_1.jpg",
+      imageF1:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_19_march_female8297_lk_.jpg",
+      imageF2:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_19_march_female8297_lk.jpg",
+      imageG1:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9932.jpg",
+      imageG2:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9933.jpg",
+      imageG3:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9935.jpg",
+      imageG4:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9930_Image_PLA.jpg",
+      price: 2999,
+      qty: 1,
+    },
+    {
+      framecolor: "brown",
+      size: "Medium",
+      productcategory: "Lenskart Air",
+      rating: "4.5",
+      productName: "Blue Full Rim Round Eyeglasses",
+      productid: 1,
+      imageBg:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9929.jpg",
+      imageFg:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9930.jpg",
+      imageM1:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_8759_lk_2.jpg",
+      imageM2:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_8759_lk_1.jpg",
+      imageF1:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_19_march_female8297_lk_.jpg",
+      imageF2:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_19_march_female8297_lk.jpg",
+      imageG1:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9932.jpg",
+      imageG2:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9933.jpg",
+      imageG3:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9935.jpg",
+      imageG4:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9930_Image_PLA.jpg",
+      price: 1999,
+      qty: 1,
+    },
+    {
+      framecolor: "blue",
+      size: "Medium",
+      productcategory: "Lenskart Air",
+      rating: "4.6",
+      productName: "Blue Full Rim Round Eyeglasses",
+      productid: 2,
+      imageBg:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9929.jpg",
+      imageFg:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9930.jpg",
+      imageM1:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_8759_lk_2.jpg",
+      imageM2:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_8759_lk_1.jpg",
+      imageF1:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_19_march_female8297_lk_.jpg",
+      imageF2:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_19_march_female8297_lk.jpg",
+      imageG1:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9932.jpg",
+      imageG2:
+        "https://static2.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9933.jpg",
+      imageG3:
+        "https://static.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9935.jpg",
+      imageG4:
+        "https://static1.lenskart.com/media/catalog/product/cache/1/thumbnail/480x480/9df78eab33525d08d6e5fb8d27136e95//l/e/lenskart-air-la-e13778-c2-eyeglasses_g_9930_Image_PLA.jpg",
+      price: 999,
+      qty: 1,
+    },
+  ];
+
+  if (!localStorage.getItem("product")) {
+    localStorage.setItem("product", JSON.stringify(item));
+  }
+
+  let data = JSON.parse(localStorage.getItem("product"));
+
+  let container = document.getElementById("container");
+
+  let row = document.createElement("div");
+  row.setAttribute("class", "row");
+  showProducts(data);
+
+  function showProducts(list) {
+    row.textContent = "";
+    list.forEach((element) => {
+      let boxWrapper = document.createElement("div");
+      boxWrapper.setAttribute("class", "box_wrapper");
+
+      let box = document.createElement("div");
+      box.setAttribute("class", "box");
+
+      let heart = document.createElement("i");
+      heart.setAttribute("class", " far fa-heart ");
+      heart.setAttribute("id", `heart${element.productid}`);
+      heart.onclick = function () {
+        addToShortlist(element);
+      };
+      fillRedOnAppend(element, heart);
+
+      let imageBox = document.createElement("div");
+      imageBox.setAttribute("class", "imageBox");
+      imageBox.onclick = function () {
+        productDetails(element);
+      };
+      imageBox.style.background = `url(${element.imageBg}) no-repeat`;
+      imageBox.style.backgroundSize = "100%";
+      let image = document.createElement("img");
+      image.src = `${element.imageFg}`;
+
+      imageBox.appendChild(image);
+      box.appendChild(heart);
+      box.appendChild(imageBox);
+
+      let detail = document.createElement("div");
+      detail.setAttribute("class", "detail_box");
+      detail.onclick = function () {
+        productDetails(element);
+      };
+      let category = document.createElement("p");
+      category.setAttribute("class", "catagory");
+      category.innerText = `${element.productcategory}`;
+      let rating = document.createElement("p");
+      rating.setAttribute("class", "rating");
+      rating.innerHTML = `${element.rating} <i class="star fas fa-star"></i>`;
+      let price = document.createElement("p");
+      price.setAttribute("class", "price");
+      price.innerText = `₹${element.price}`;
+
+      let size = document.createElement("div");
+      size.setAttribute("class", "size");
+      size.innerHTML = `Size: <b>${element.size}</b>`;
+      let color = document.createElement("div");
+      color.setAttribute("class", "pdtclr");
+      color.style.backgroundColor = element.framecolor;
+
+      size.appendChild(color);
+
+      detail.append(category, rating, price, size);
+
+      box.appendChild(detail);
+      boxWrapper.appendChild(box);
+      row.appendChild(boxWrapper);
+    });
+    container.appendChild(row);
+  }
+
+  //functions....
+  function fillRedOnAppend(el, heart) {
+    let x = JSON.parse(localStorage.getItem(`${currentUsr[0].fname}shortlist`));
+    if (x != null && x.length != 0) {
+      x.forEach((elt) => {
+        if (elt.productid == el.productid) {
+          heart.classList.remove("far");
+          heart.classList.add("fas");
+          heart.classList.add("fass");
+        }
+      });
+    }
+  }
+
+  function productDetails(el) {
+    let arr = [];
+    arr.push(el);
+    localStorage.setItem("productDetails", JSON.stringify(arr));
+    window.location.href = "productDetails.html";
+  }
+
+  let sort = document.getElementById("sortBy");
+
+  sort.addEventListener("click", sortBy);
+
+  function sortBy() {
+    if (sort.value == "Price Low to High") low2h();
+    if (sort.value == "Price High to Low") h2low();
+    if (sort.value == "Best Sellers") rateH2L();
+  }
+
+  function rateH2L() {
+    data.sort(function (a, b) {
+      let x = Number(a.rating);
+      let y = Number(b.rating);
+      return y - x;
+    });
+    showProducts(data);
+  }
+
+  function low2h() {
+    data.sort(function (a, b) {
+      let x = Number(a.price);
+      let y = Number(b.price);
+      return x - y;
+    });
+    showProducts(data);
+  }
+  function h2low() {
+    data.sort(function (a, b) {
+      let x = Number(a.price);
+      let y = Number(b.price);
+      return y - x;
+    });
+    showProducts(data);
+  }
+
+  function addToShortlist(el) {
+    let shortlistdata = JSON.parse(
+      localStorage.getItem(`${currentUsr[0].fname}shortlist`)
+    );
+    if (!shortlistdata) {
+      let data = [];
+      data.push(el);
+      localStorage.setItem(
+        `${currentUsr[0].fname}shortlist`,
+        JSON.stringify(data)
+      );
+      fillRed(el);
+    } else {
+      let flag = 1;
+      for (let i = 0; i < shortlistdata.length; i++) {
+        if (Number(shortlistdata[i].productid) == Number(el.productid)) {
+          flag = 0;
+          shortlistdata.splice(i, 1);
+          localStorage.setItem(
+            `${currentUsr[0].fname}shortlist`,
+            JSON.stringify(shortlistdata)
+          );
+          fillNone(el);
+          break;
+        }
+      }
+      if (flag) {
+        shortlistdata.push(el);
+        localStorage.setItem(
+          `${currentUsr[0].fname}shortlist`,
+          JSON.stringify(shortlistdata)
+        );
+        fillRed(el);
+      }
+    }
+    updateCounter();
+    shortlistItems();
+    wishlist(1);
+  }
+
+  function fillRed(g) {
+    let heartFill = document.getElementById(`heart${g.productid}`);
+    heartFill.classList.remove("far");
+    heartFill.classList.add("fas");
+    heartFill.classList.add("fass");
+  }
+  function fillNone(g) {
+    let heartFill = document.getElementById(`heart${g.productid}`);
+    heartFill.classList.remove("fas");
+    heartFill.classList.remove("fass");
+    heartFill.classList.add("far");
+  }
+  // window.addEventListener("load", fillRedOnLoad);
+
+  // function fillRedOnLoad() {
+  //   let shortList = JSON.parse(
+  //     localStorage.getItem(`${currentUsr[0].fname}shortlist`)
+  //   );
+  //   if (shortList) {
+  //     shortList.forEach((element) => {
+  //       let heartFill = document.getElementById(`heart${element.productid}`);
+  //       heartFill.classList.remove("far");
+  //       heartFill.classList.add("fas");
+  //       heartFill.classList.add("fass");
+  //     });
+  //   }
+  // }
+
+  function colorFilter() {
+    let radios = document.getElementsByName("radioColor");
+    let val = "";
+    for (var i = 0, length = radios.length; i < length; i++) {
+      if (radios[i].checked) {
+        val = radios[i].value;
+        break;
+      }
+    }
+    let product = JSON.parse(localStorage.getItem("product"));
+    function matchColor(el) {
+      if (el.framecolor == val) return el;
+    }
+    let newArr = product.filter(matchColor);
+    showProducts(newArr);
+  }
+</script>
