@@ -7,6 +7,7 @@
 #heigth30 {
   height: 30px;
 }
+
 .mbtn {
   margin-left: 10px;
   border: none;
@@ -45,10 +46,12 @@
   height: 40px;
 }
 .mainbox {
+  opacity: 0;
   background-color: white;
   width: 60%;
   margin: 30px auto;
   padding-bottom: 35px;
+  transform: translateY(-30%);
 }
 .floatl {
   float: left;
@@ -68,6 +71,7 @@
 }
 .width50 {
   width: 100%;
+  padding-bottom: 11rem;
 }
 
 .floatr {
@@ -75,6 +79,14 @@
 }
 .taligncenter {
   text-align: center;
+}
+.error {
+  font-family: "futura std book";
+  margin: 0%;
+  padding: 0%;
+  font-weight: lighter;
+  font-size: small;
+  color: red;
 }
 .PopUp {
   display: none;
@@ -87,4 +99,7 @@
 }
 .pop_up_page {
   display: block;
+  transform: translateY(0%);
+  opacity: 1;
+  transition: transform 0.3s ease-out, opacity 0.25s linear;
 }

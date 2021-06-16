@@ -3,6 +3,21 @@
   padding: 0px;
   font-family: "rajdhani", sans-serif;
 }
+body {
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: "futura std heavy";
+  src: url("/fonts/FuturaStdHeavy.woff") format("woff");
+}
+@font-face {
+  font-family: "futura std book";
+  src: url("/fonts/FuturaStdBook.woff") format("woff");
+}
+@font-face {
+  font-family: "futura std medium";
+  src: url("/fonts/FuturaStdMedium.woff") format("woff");
+}
 a {
   text-decoration: none;
   color: rgb(51, 51, 51);
@@ -11,6 +26,7 @@ a {
   width: 100%;
   height: fit-content;
 }
+
 .header {
   height: fit-content;
   position: sticky;
@@ -82,7 +98,7 @@ a {
 .search_container input {
   width: 100%;
   height: 5vh;
-  min-height: 20px;
+  min-height: 23px;
   padding-inline-start: 0.5rem;
   color: rgb(168, 168, 168);
   letter-spacing: 1px;
@@ -123,10 +139,10 @@ input:focus {
 .cart_item4 i {
   background: url(https://static.lenskart.com/media/desktop/img/menu/cart-icon.svg)
     no-repeat;
-  min-height: 14px;
-  min-width: 14px;
-  height: 2vh;
-  width: 1.3vw;
+  min-height: 16px;
+  min-width: 16px;
+  height: 2.5vh;
+  width: 1.5vw;
   display: inline-block;
   vertical-align: top;
 }
@@ -135,8 +151,8 @@ input:focus {
     no-repeat;
   min-height: 14px;
   min-width: 14px;
-  height: 2vh;
-  width: 1.3vw;
+  height: 2.5vh;
+  width: 1.5vw;
   display: inline-block;
   vertical-align: top;
 }
@@ -145,7 +161,7 @@ input:focus {
 .bottom_nav_container {
   width: 100%;
   height: 6vh;
-  min-height: 22px;
+  min-height: 25px;
   background-color: rgb(220, 219, 212);
 }
 .bottom_nav {
@@ -188,7 +204,7 @@ input:focus {
   height: 5.5vh;
   min-width: 35px;
   min-height: 20px;
-  padding: 0.3vh 0.2vw;
+  padding: 0.3vh 2px;
 }
 
 /* main hoverable navbar css */
