@@ -192,6 +192,12 @@
 
       .sc:hover {
         color: black;
+        cursor: pointer;
+      }
+      .sc {
+        width: 55%;
+        display: flex;
+        justify-content: space-between;
       }
 
       .drop-down {
@@ -212,6 +218,13 @@
       }
       .bottom30 {
         margin-bottom: 30px;
+      }
+      .frame_style {
+        font-family: "futura std medium";
+        font-weight: lighter;
+        letter-spacing: 2px;
+        color: grey;
+        margin-bottom: 10px;
       }
       .star {
         color: white;
@@ -347,9 +360,10 @@
               <form>
                 <div class="search_container">
                   <input
+                    id="search_input"
                     type="text"
                     placeholder="What are you looking for ?"
-                  /><i class="search_icon"></i>
+                  /><i id="search_icon" class="search_icon"></i>
                 </div>
               </form>
             </div>
@@ -1550,7 +1564,7 @@
       <div class="whole-content">
         <div class="frame">
           <div class="bottom30">
-            FRAME TYPE
+            <h3 class="frame_style">FRAME TYPE</h3>
             <div class="flexed">
               <div class="framebox">
                 <img
@@ -1570,18 +1584,18 @@
                   alt=""
                 />Half Rim
               </div>
-              <div class="framebox">
+              <!-- <div class="framebox">
                 <img
                   src="https://static.lenskart.com/images/cust_mailer/Eyeglass/HalfRim.png"
                   alt=""
                 />Eye Care
-              </div>
+              </div> -->
             </div>
           </div>
 
           <!-- Frame color -->
           <div class="bottom30">
-            FRAME COLOR
+            <h3 class="frame_style">FRAME COLOR</h3>
             <div class="column-flex" style="overflow-y: scroll; height: 200px">
               <div class="sc">
                 <input
@@ -1748,7 +1762,7 @@
 
           <!-- Frame shape -->
           <div class="bottom30">
-            FRAME SHAPE
+            <h3 class="frame_style">FRAME SHAPE</h3>
             <div class="flexed">
               <div class="framebox">
                 <img
@@ -2135,6 +2149,7 @@
       framecolor: "black",
       size: "Medium",
       productcategory: "Lenskart Air",
+      frameshape: "fullrim",
       rating: "4.4",
       productName: "Blue Full Rim Round Eyeglasses",
       productid: 0,
@@ -2300,6 +2315,35 @@
   }
 
   //functions....
+
+  let searchFilter = document.getElementById("search_icon");
+  searchFilter.addEventListener("click", searchInput);
+
+  function searchInput() {
+    let input = document.getElementById("search_input");
+    search(input.value);
+  }
+
+  //function search
+
+  function search(a) {
+    a = a.split(" ")[0].toLowerCase();
+    let data = JSON.parse(localStorage.getItem("product"));
+    let newArray = [];
+    for (i in data) {
+      if (
+        data[i].productcategory.split(" ")[0].toLowerCase() == a ||
+        data[i].framecolor == a ||
+        data[i].frameshape == a
+      ) {
+        newArray.push(data[i]);
+      }
+    }
+    console.log(newArray);
+    if (newArray.length != 0) showProducts(newArray);
+    else return;
+  }
+
   function fillRedOnAppend(el, heart) {
     let x = JSON.parse(localStorage.getItem(`${currentUsr[0].fname}shortlist`));
     if (x != null && x.length != 0) {
