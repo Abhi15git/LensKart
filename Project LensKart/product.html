@@ -2644,6 +2644,8 @@
   }
   function fillNone(g) {
     let heartFill = document.getElementById(`heart${g.productid}`);
+
+    if (heartFill == null) return;
     heartFill.classList.remove("fas");
     heartFill.classList.remove("fass");
     heartFill.classList.add("far");
