@@ -39,15 +39,19 @@ function appendingCart() {
 
     parent1[0].appendChild(tr);
   }
-  var tr1 = document.createElement("table");
+  var tr1 = document.createElement("div");
   cartBox.textContent = "";
   tr1.setAttribute("class", "fixed_tr");
-  tr1.innerHTML = `<td class="totalprice" colspan="3";>Order Total<p class="prc">₹${ttp}<p></td>
-<td style="width: 20vw;"></td>
-    <td colspan="4" class="colorp">PROCEED TO CHECKOUT</td>`;
+  tr1.innerHTML = `<div class="totalprice" ;>Order Total<span class="prc">₹${ttp}<span></div>
+
+    <div  class="colorp" onclick="checkOut()">PROCEED TO CHECKOUT</div>`;
   cartBox.appendChild(tr1);
 
   totalprice();
+}
+
+function checkOut() {
+  window.location.href = "checkout.html";
 }
 
 function totalprice() {
@@ -58,7 +62,7 @@ function totalprice() {
   for (i1 in data) {
     ttp += data[i1].price * data[i1].qty;
   }
-  tr.innerHTML = `<td class="totalprice" colspan="4";>Order Total:<span style="color:chocolate;">₹${ttp}<span></td>`;
+  tr.innerHTML = `<div class="totalprice" ;>Order Total:<span class='prc' style="color:chocolate;">₹${ttp}<span></div>`;
 }
 
 function fun1(a) {
