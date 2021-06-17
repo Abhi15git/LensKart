@@ -65,7 +65,7 @@ function clearShortlistProduct(el) {
       }
     }
     updateCounter();
-
+    fillNone(el);
     shortlistItems();
   }
 }
