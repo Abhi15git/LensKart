@@ -16,6 +16,7 @@
 .flexed {
   display: flex;
   flex-flow: row wrap;
+  background-color: white;
 }
 .p {
   width: 30%;
@@ -71,7 +72,7 @@
 }
 .width50 {
   width: 100%;
-  padding-bottom: 0px;
+  padding-bottom: 175px;
 }
 
 .floatr {
