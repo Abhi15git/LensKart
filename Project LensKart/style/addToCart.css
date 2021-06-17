@@ -20,6 +20,9 @@
   text-align: center;
   font-family: arial;
 }
+.card * {
+  margin-bottom: 10px;
+}
 .containerX {
   width: 25%;
   text-align: center;
@@ -28,6 +31,7 @@
 }
 .textX {
   color: peru;
+  font-size: small;
 }
 .colorpowderblue {
   color: lightseagreen;
@@ -35,9 +39,16 @@
 .ul {
   list-style-type: none;
   padding: 5px 30px;
+  font-size: 1.2vw;
+}
+.ul li {
+  font-size: 1vw;
 }
 .textX1 {
   color: white;
+  font-size: small;
+  font-weight: lighter;
+  font-family: "futura std medium";
 }
 .iconX {
   width: 15px;
@@ -56,18 +67,19 @@
   color: grey;
 }
 
-.card button {
-  padding-bottom: 2%;
+.card p button {
   border: none;
   outline: 0;
   color: white;
   background-color: sandybrown;
   text-align: center;
   cursor: pointer;
-  width: 80%;
+  width: 90%;
   height: 35px;
-  font-size: 18px;
+  letter-spacing: 2px;
+  font-size: 1.2vw;
   border-radius: 5px;
+  padding-top: 5px;
 }
 
 .card button:hover {
@@ -137,6 +149,7 @@
 
 .textZ {
   color: peru;
+  font-size: small;
 }
 
 .colorpowderblue {
@@ -146,10 +159,17 @@
 .ulZ {
   list-style-type: none;
   padding: 5px 30px;
+  font-size: 1.2vw;
+}
+.ulZ li {
+  font-size: 1vw;
 }
 
 .textZ1 {
   color: white;
+  font-family: "futura std medium";
+  font-weight: lighter;
+  font-size: 1.2vw;
 }
 
 .iconZ {
@@ -171,8 +191,8 @@
   color: grey;
 }
 
-.card button {
-  padding-bottom: 2%;
+.card p button {
+  padding-top: 2px;
   border: none;
   outline: 0;
   color: white;
@@ -181,7 +201,7 @@
   cursor: pointer;
   width: 80%;
   height: 35px;
-  font-size: 18px;
+  font-size: 1.2vw;
   border-radius: 5px;
 }
 

@@ -3,6 +3,7 @@
   font-size: 1.1vw;
 }
 .cart_wrapper {
+  margin-top: -10px;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -57,7 +58,8 @@
 
 .pimage {
   width: 100px;
-  height: 100px;
+  margin-left: -15%;
+  padding-right: 1rem;
 }
 
 .det {
@@ -82,9 +84,11 @@
 }
 
 .btn-style {
-  padding: 0.5pt 4pt;
+  margin: 0%;
+  padding: 0% 3pt;
   color: green;
-  border: 1px solid grey;
+  border: 1px solid rgba(128, 128, 128, 0.486);
+  font-size: larger;
   border-radius: 50%;
 }
 
@@ -127,10 +131,23 @@
   background-color: chocolate;
   font-size: 2em;
   font-weight: bold;
+  cursor: pointer;
+  float: right;
 }
 .totalprice {
-  font-size: 2em;
-  font-weight: bolder;
+  text-align: center;
+  padding: 10px 0px;
+  padding-inline-start: 2vw;
+  font-size: 2vw;
+  font-weight: 100;
+  font-family: "futura std medium";
+}
+.fixed_tr {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
 .remove-btn {
   border: 0;
@@ -139,12 +156,12 @@
   background-color: white;
 }
 .prc {
+  font-weight: lighter;
+  font-family: "futura std medium";
   color: chocolate;
-  font-size: xx-large;
+  font-size: larger;
 }
-.prc::before {
-  content: "₹";
-}
+
 .table_2 {
   display: flex;
   justify-content: space-between;
