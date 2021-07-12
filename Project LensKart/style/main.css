@@ -34,7 +34,7 @@ main content first row css */
 }
 .glasses {
   font-size: 1.4vw;
-  padding: 20px;
+  padding: 2vw;
   width: 90%;
   margin: auto;
   list-style-type: none;
@@ -43,7 +43,7 @@ main content first row css */
 }
 
 .glasses li {
-  padding: 18px;
+  padding: 1.4vw;
   background-color: rgb(250, 250, 250);
   width: 11vw;
   height: 16vh;
@@ -74,7 +74,7 @@ main content first row css */
 .dropdown_window_1 {
   width: 11vw;
   min-width: 90px;
-  height: 110px;
+  height: 20vh;
   padding: 1rem;
 }
 .dropdown_window_2 table {
@@ -98,7 +98,7 @@ main content first row css */
   padding: 0px 5px;
 }
 .dropdown_window_2 table td div {
-  padding: 15px 10px 0px 0px;
+  padding: 1vw .5vw 0px 0px;
 }
 
 .dropdown_window_2 table tr:hover {
@@ -107,7 +107,7 @@ main content first row css */
 .viewall_link {
   text-decoration: none;
   color: rgb(6, 180, 166);
-  padding: 10px 5px;
+  padding: 1vw .5px;
 }
 
 /* lenskart main carousel css */
@@ -386,11 +386,14 @@ main content first row css */
   display: flex;
   justify-content: space-between;
 }
-.wrapper_description {
+.wrapper_description { 
   display: none;
   padding: 0px 5px;
   line-height: 18px;
   word-wrap: none;
+}
+.wrapper_description p{
+  width: 90%;
 }
 .description {
   display: block;

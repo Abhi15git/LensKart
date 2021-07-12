@@ -1,5 +1,6 @@
 footer {
   opacity: 0.9;
+  padding: 5vh 0%;
 }
 .foot {
   width: 96%;
@@ -73,7 +74,7 @@ footer {
   font-size: 1vw;
   font-weight: lighter;
   font-family: "futura std book";
-  padding: 0px 10px;
+  padding: 0px 1vw;
 }
 .children-nav li + li {
   border-left: 2px solid rgba(170, 170, 170, 0.452);
